@@ -19,7 +19,6 @@ return new class extends Migration
             $table->unsignedBigInteger('Customer_ID');
             $table->date('DateExport');
 
-
             $table->foreign('epl_ID')->references('id')
                 ->on('employees')
                 ->onDelete('cascade')->onUpdate('cascade');

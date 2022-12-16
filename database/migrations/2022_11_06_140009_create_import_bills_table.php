@@ -15,9 +15,7 @@ return new class extends Migration
     {
         Schema::create('import_bills', function (Blueprint $table) {
             $table->id()->autoIncrement();
-
             $table->unsignedBigInteger('Mobile_ID');
-//            $table->unsignedBigInteger('epl_ID');
             $table->unsignedBigInteger('provideID');
             $table->string('color');
             $table->integer('quantity');
@@ -25,11 +23,9 @@ return new class extends Migration
             $table->foreign('provideID')->references('id')
                 ->on('provides')
                 ->onDelete('cascade')->onUpdate('cascade');
-
             $table->foreign('Mobile_ID')->references('id')
                 ->on('mobiles')
                 ->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 

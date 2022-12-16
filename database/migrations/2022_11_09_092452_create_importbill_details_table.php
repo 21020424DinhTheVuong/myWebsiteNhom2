@@ -20,14 +20,6 @@ return new class extends Migration
             $table->string('color');
             $table->integer('quantity');
 
-
-//            $table->foreign('Ibill_ID')->references('id')
-//            ->on('import_bills')
-//            ->onDelete('cascade')->onUpdate('cascade');
-//
-//            $table->foreign('Mobile_ID')->references('id')
-//                ->on('mobiles')
-//                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

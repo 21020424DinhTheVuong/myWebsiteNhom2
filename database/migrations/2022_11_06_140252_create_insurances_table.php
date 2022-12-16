@@ -19,12 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('epl_ID');
             $table->unsignedBigInteger('mobile_ID');
             $table->date('activeDate');
-
             $table->foreign('customer_ID')->references('id')
                 ->on('customers')
                 ->onDelete('cascade')->onUpdate('cascade');
-
-
            $table->foreign('mobile_ID')->references('id')
                ->on('mobiles')
                ->onDelete('cascade')->onUpdate('cascade');
