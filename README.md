@@ -54,4 +54,104 @@ PHP được coi là ngôn ngữ lập trình "cốt lõi" để tạo nên toà
 
 
 
-​		
+#### CƠ SỞ DỮ LIỆU(DATABBASE): mobliestoredb
+
+![mobilestoredb](C:\Users\Administrator\Desktop\New folder\mobilestoredb.png)
+
+
+
+Cơ sở dữ liệu được xây dựa trên mô hình thực thể (Entity Relationship model - E-R). 
+
+Các khoá chính và khoá ngoại được tạo trong CSDL được thiết kế logic sao cho các quan hệ có tính liên kết giữa hai hay nhiều tập thực thể.
+
+
+
+#### CHỨC NĂNG CHÍNH CỦA CHƯƠNG TRÌNH: VỚI VAI TRÒ LÀ ADMINISTRATOR 
+
+- **HỆ THỐNG ĐĂNG NHẬP**
+
+![Hethongdangnhap](C:\Users\Administrator\Desktop\New folder\Hethongdangnhap.png)
+
+Khi được chia vai trò sử dụng, mỗi người sử dụng sẽ được cấp 1 tài khoản có mã hoá mật khẩu theo hàm băm (hash) và được lưu trữ lại trong bảng *users* trong CSDL.
+
+Đồng thời, với Laravel nhóm đã thiết kế Middleware như một cánh cổng giúp sàng lọc được những request tiềm ẩn xấu như tấn công mạng hoặc lỗi trong phân quyền các user.
+
+
+
+- **TRANG CHỦ**
+
+![home](C:\Users\Administrator\Desktop\New folder\home.png)
+
+Khi login tài khoản Admin, người dùng sẽ có các chức năng được cung cấp để quản lí cửa hàng như:
+
+1. Nhập sản phẩm vào kho
+2. Tìm kiếm sản phẩm
+3. Thêm nhân viên
+4. Quản lí nhập hàng
+5. Quản lí bán hàng
+
+> ### Clip demo sản phẩm: 
+
+
+
+Với mô hình web server-client, các dữ liệu được nhập khi input bằng bàn phím được xử lí thông qua các câu lệnh PHP để insert vào trong bảng tương ứng với từng loại dữ liệu, từng loại đối tượng. Các vấn đề xảy ra với khoá chính khoá ngoại cũng được xử lí mượt mà bằng Laravel.
+
+```php
+public function insertEmployee(Request $request){
+    $EMPLOYEE = new employee;
+    $EMPLOYEE->epl_birthDate = $request->birthDate;
+    $EMPLOYEE->sex = $request->sex;
+    $EMPLOYEE->jobTitle = $request->jobTitle;
+    $EMPLOYEE->phone = $request->phone;
+    $EMPLOYEE->address = $request->address;
+    $EMPLOYEE->save();
+    return redirect()->back()->with('thong bao', 'Thêm nhân viên thành công');
+}
+```
+
+
+
+Với công cụ tìm kiếm sản phẩm, người dùng có thể tìm kiếm sản phẩm trong kho thông qua tên sản phẩm, phân loại, màu sắc, nhà cung cấp. Chức năng này được thiết kế dựa trên những lí thuyết về câu lệnh truy vấn MySQL, vì vậy khi kết hợp các câu lệnh truy vấn với nhau đã tạo nên các bộ lọc hợp lí dễ dàng hơn quản lí sản phẩm.
+
+```php
+function search(Request $request){
+    if(isset($_GET['query'])){
+        $search_text = $_GET['query'];
+
+        $mobiles = DB::table('mobiles')->where('productName', 'LIKE', '%' . $search_text . '%')
+            ->paginate(5);
+        $mobiles->appends($request->all());
+        return view('function.search',['mobiles'=>$mobiles]);
+    }else {
+        $mobiles = DB::table('mobiles')->paginate(5);
+        return view('function.search',['mobiles'=>$mobiles]);
+    }
+```
+
+
+
+## HƯỚNG DẪN CÀI ĐẶT
+
+**Bước 1:** Cài đặt thư viện [Composer and the Laravel](https://getcomposer.org/download/) 
+
+![step1](C:\Users\Administrator\Desktop\New folder\step1.png)
+
+**Bước 2:** Tải dự án ở github và giải nén:
+
+![step2](C:\Users\Administrator\Desktop\New folder\step2.png)
+
+- Sau khi giải nén myWebsiteNhom2, vào trong thư mục. Mở Command Prompt với root là tại folder myWebsiteNhom2. 
+
+- Giải nén file: EXTRACT_THIS.zip![step2_1](C:\Users\Administrator\Desktop\New folder\step2_1.png)
+
+Bước 3: Khởi động MySQL bằng XAMPP
+
+Bước 4: Tại Command Prompt, chạy lần lượt các lệnh:
+
+> composer update![3.1](C:\Users\Administrator\Desktop\New folder\3.1.png)
+
+> php artisan key:generate
+
+>php artisan migrate
+
+> php artisan serve
