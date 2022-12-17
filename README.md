@@ -56,7 +56,7 @@ PHP được coi là ngôn ngữ lập trình "cốt lõi" để tạo nên toà
 
 #### CƠ SỞ DỮ LIỆU(DATABBASE): mobliestoredb
 
-![mobilestoredb](C:\Users\Administrator\Desktop\New folder\mobilestoredb.png)
+![mobilestoredb](https://user-images.githubusercontent.com/67379909/208251487-a03f0fdc-fa46-4c86-98ca-c3e6334bf124.png)
 
 
 
@@ -70,7 +70,7 @@ Các khoá chính và khoá ngoại được tạo trong CSDL được thiết k
 
 - **HỆ THỐNG ĐĂNG NHẬP**
 
-![Hethongdangnhap](C:\Users\Administrator\Desktop\New folder\Hethongdangnhap.png)
+![Hethongdangnhap](https://user-images.githubusercontent.com/67379909/208251485-5b46a4d1-87bf-44a5-bd6b-0ecc63a42b84.png)
 
 Khi được chia vai trò sử dụng, mỗi người sử dụng sẽ được cấp 1 tài khoản có mã hoá mật khẩu theo hàm băm (hash) và được lưu trữ lại trong bảng *users* trong CSDL.
 
@@ -80,7 +80,7 @@ Khi được chia vai trò sử dụng, mỗi người sử dụng sẽ được
 
 - **TRANG CHỦ**
 
-![home](C:\Users\Administrator\Desktop\New folder\home.png)
+![home](https://user-images.githubusercontent.com/67379909/208251486-3bdf15e3-cf9b-4e68-a7e7-edf75eb612d6.png)
 
 Khi login tài khoản Admin, người dùng sẽ có các chức năng được cung cấp để quản lí cửa hàng như:
 
@@ -134,21 +134,21 @@ function search(Request $request){
 
 **Bước 1:** Cài đặt thư viện [Composer and the Laravel](https://getcomposer.org/download/) 
 
-![step1](C:\Users\Administrator\Desktop\New folder\step1.png)
+![step1](https://user-images.githubusercontent.com/67379909/208251488-ac41cf2d-c7c1-4393-80d1-507247615db9.png)
 
 **Bước 2:** Tải dự án ở github và giải nén:
 
-![step2](C:\Users\Administrator\Desktop\New folder\step2.png)
+![step2](https://user-images.githubusercontent.com/67379909/208251490-3c75b3c9-9bd8-43d6-8da3-9e793dac5b36.png)
 
 - Sau khi giải nén myWebsiteNhom2, vào trong thư mục. Mở Command Prompt với root là tại folder myWebsiteNhom2. 
 
-- Giải nén file: EXTRACT_THIS.zip![step2_1](C:\Users\Administrator\Desktop\New folder\step2_1.png)
+- Giải nén file: EXTRACT_THIS.zip![step2_1](https://user-images.githubusercontent.com/67379909/208251482-6782d5ae-0cb1-49b8-822e-492567093d7a.png)
 
 Bước 3: Khởi động MySQL bằng XAMPP
 
 Bước 4: Tại Command Prompt, chạy lần lượt các lệnh:
 
-> composer update![3.1](C:\Users\Administrator\Desktop\New folder\3.1.png)
+> composer update![3.1](https://user-images.githubusercontent.com/67379909/208251484-0b576c72-1eab-43da-b204-61dacc1e63c3.png)
 
 > php artisan key:generate
 
