@@ -8,6 +8,8 @@
 
 ## Tài nguyên lập trình
 
+
+
 - ### Laravel Framework:
 
 Laravel Framework là một tập hợp các class giúp các nhà phát triển làm việc được dễ dàng hơn. Ví dụ điển hình là khi nhà phát triển chọn ẩn một số Hypertext Transfer Protocol(HTTP) phức tạp hoặc thêm các chức năng thiết yếu.
@@ -90,7 +92,9 @@ Khi login tài khoản Admin, người dùng sẽ có các chức năng được
 4. Quản lí nhập hàng
 5. Quản lí bán hàng
 
-> ### Clip demo sản phẩm: 
+
+
+> ### Clip demo sản phẩm:  [Youtube](https://www.youtube.com/watch?v=8aoUiAmt_EI)
 
 
 
@@ -111,13 +115,12 @@ public function insertEmployee(Request $request){
 
 
 
-Với công cụ tìm kiếm sản phẩm, người dùng có thể tìm kiếm sản phẩm trong kho thông qua tên sản phẩm, phân loại, màu sắc, nhà cung cấp. Chức năng này được thiết kế dựa trên những lí thuyết về câu lệnh truy vấn MySQL, vì vậy khi kết hợp các câu lệnh truy vấn với nhau đã tạo nên các bộ lọc hợp lí dễ dàng hơn quản lí sản phẩm.
+Công cụ tìm kiếm sản phẩm, người dùng có thể tìm kiếm sản phẩm trong kho thông qua tên sản phẩm, phân loại, màu sắc, nhà cung cấp. Chức năng này được thiết kế dựa trên những lí thuyết về câu lệnh truy vấn MySQL, vì vậy khi kết hợp các câu lệnh truy vấn với nhau đã tạo nên các bộ lọc hợp lí dễ dàng hơn quản lí sản phẩm.
 
 ```php
 function search(Request $request){
     if(isset($_GET['query'])){
         $search_text = $_GET['query'];
-
         $mobiles = DB::table('mobiles')->where('productName', 'LIKE', '%' . $search_text . '%')
             ->paginate(5);
         $mobiles->appends($request->all());
@@ -136,6 +139,8 @@ function search(Request $request){
 
 ![step1](https://user-images.githubusercontent.com/67379909/208251488-ac41cf2d-c7c1-4393-80d1-507247615db9.png)
 
+
+
 **Bước 2:** Tải dự án ở github và giải nén:
 
 ![step2](https://user-images.githubusercontent.com/67379909/208251490-3c75b3c9-9bd8-43d6-8da3-9e793dac5b36.png)
@@ -144,14 +149,47 @@ function search(Request $request){
 
 - Giải nén file: EXTRACT_THIS.zip![step2_1](https://user-images.githubusercontent.com/67379909/208251482-6782d5ae-0cb1-49b8-822e-492567093d7a.png)
 
-Bước 3: Khởi động MySQL bằng XAMPP
 
-Bước 4: Tại Command Prompt, chạy lần lượt các lệnh:
 
-> composer update![3.1](https://user-images.githubusercontent.com/67379909/208251484-0b576c72-1eab-43da-b204-61dacc1e63c3.png)
+**Bước 3:** Khởi động Apache và MySQL bằng XAMPP
 
-> php artisan key:generate
+![Xampp](https://user-images.githubusercontent.com/67379909/208272180-8b72cbb5-b7a0-4e0d-ada3-98848b4f4d71.png)
 
->php artisan migrate
 
-> php artisan serve
+
+**Bước 4:** Tại Command Prompt, chạy lần lượt các lệnh:
+
+> - composer update![3.1](https://user-images.githubusercontent.com/67379909/208251484-0b576c72-1eab-43da-b204-61dacc1e63c3.png)	Lệnh này giúp update các thư viện
+
+> - php artisan key:generate
+>
+> ![key](https://user-images.githubusercontent.com/67379909/208272040-f67765fc-835c-4f12-ac86-46cfd6ac01c1.png)
+>
+> ​	Tạo khoá bảo mật của dự án
+
+>- php artisan migrate
+>
+>![migrate](https://user-images.githubusercontent.com/67379909/208272041-7360d020-8200-43a4-8c22-2eda04907e49.png)
+>
+>​	Lệnh này yêu cầu Laravel tạo cơ sở dữ liệu được lập trình tự động
+
+> - php artisan serve
+>
+> ![serve](https://user-images.githubusercontent.com/67379909/208272042-8ea28773-596d-4bb8-8dd7-ade147725f70.png)
+>
+> ​	Chạy chương trình
+>
+> ​	Truy cập "http://127.0.0.1:8000/" để tới trang web của chương trình.
+
+
+
+## LỜI CẢM ƠN
+
+
+
+Chúng em xin gửi lời cảm ơn chân thành và sâu sắc nhất tới các thầy cô phụ trách giảng dạy bộ môn Cơ Sở Dữ Liệu của trường Đại Học Công Nghệ - ĐHQGHN:
+
+- **Thầy Lê Hồng Hải**
+- **Cô Lê Thị Phương**
+
+đã hỗ trợ, giúp chúng em hoàn thành bài tập lớn này.
